@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Post;
 
+use App\Actions\Post\ValidatePostAction;
 use App\Http\Controllers\Controller;
 use App\Models\Post;
 use Illuminate\Http\RedirectResponse;
@@ -13,8 +14,10 @@ class ValidatePostController extends Controller
         Request $request,
         Post $post,
     ): RedirectResponse {
-        // Validate post
+        (new ValidatePostAction())(
+            post: $post,
+        );
 
-        // Send Email
+        return redirect()->back();
     }
 }

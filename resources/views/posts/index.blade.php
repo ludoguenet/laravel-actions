@@ -13,6 +13,11 @@
             </th>
             <th class="p-2 whitespace-nowrap">
                 <div class="font-semibold text-left">
+                    Points de l'auteur
+                </div>
+            </th>
+            <th class="p-2 whitespace-nowrap">
+                <div class="font-semibold text-left">
                     <a href="?sortBy=status&direction={{ request('direction') === 'desc' ? 'asc' : 'desc' }}&page={{ $posts->currentPage() }}">
                         Statut
                     </a>
@@ -40,6 +45,15 @@
                         <div class="font-medium text-gray-800">
                             {{ $post->title }}
                         </div>
+                    </div>
+                </td>
+                <td class="p-2 whitespace-nowrap">
+                    <div class="text-left">
+                        <span
+                            class="text-black bg-blue-300 font-medium rounded-full text-xs px-5 py-2.5 text-center mr-2 mb-2"
+                        >
+                            {{ $post->user->total_points }}
+                        </span>
                     </div>
                 </td>
                 <td class="p-2 whitespace-nowrap">

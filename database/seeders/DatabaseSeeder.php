@@ -20,14 +20,18 @@ class DatabaseSeeder extends Seeder
             ->create([
                 'user_id' => User::factory(),
             ])
-            ->each(static function ($post) {
-                $post->comments()->saveMany(
-                    Comment::factory()->times(random_int(2, 5))->make(),
-                );
+            ->each(static function (Post $post) {
+                $post
+                    ->comments()
+                    ->saveMany(
+                        Comment::factory()->times(random_int(2, 5))->make(),
+                    );
 
-                $post->likes()->saveMany(
-                    Like::factory()->times(random_int(2, 5))->make(),
-                );
+                $post
+                    ->likes()
+                    ->saveMany(
+                        Like::factory()->times(random_int(2, 5))->make(),
+                    );
             });
     }
 }

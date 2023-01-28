@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Database\Factories;
 
 use App\Enums\PostStatusEnum;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
@@ -23,6 +24,7 @@ class PostFactory extends Factory
         return [
             'title' => $this->faker->sentence,
             'status' => $this->faker->randomElement(PostStatusEnum::cases()),
+            'user_id' => User::factory(),
         ];
     }
 }

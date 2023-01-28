@@ -12,7 +12,7 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class PostValidated extends Mailable
+class PostValidatedMail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -45,11 +45,9 @@ class PostValidated extends Mailable
     }
 
     /**
-     * Get the attachments for the message.
-     *
-     * @return array
+     * @return array<string, mixed>
      */
-    public function attachments()
+    public function attachments(): array
     {
         return [];
     }

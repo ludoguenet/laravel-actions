@@ -22,6 +22,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'total_points',
     ];
 
     /**
@@ -40,6 +41,7 @@ class User extends Authenticatable
      * @var array<string, string>
      */
     protected $casts = [
+        'total_points' => 'integer',
         'email_verified_at' => 'datetime',
     ];
 
